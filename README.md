@@ -1,6 +1,6 @@
-# filtrek_app
+# Filtrek Flutter App
 
-A new Flutter project.
+A new Flutter project for the Filtrek application.
 
 ## Getting Started
 
