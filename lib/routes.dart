@@ -18,4 +18,4 @@ final GoRouter routes = GoRouter(
           name: RouteNames.test,
           builder: (context, state) => TestScreen()),
     ],
-    initialLocation: "/onBoarding");
+    initialLocation: "/");
