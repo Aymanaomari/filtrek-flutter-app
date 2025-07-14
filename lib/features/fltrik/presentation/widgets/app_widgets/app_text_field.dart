@@ -48,23 +48,29 @@ class AppTextField extends StatelessWidget {
       keyboardType: keyboardType,
       maxLength: maxLength,
       decoration: InputDecoration(
-          filled: true,
-          fillColor: ColorsAssets.thirdColor,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(width: 0)),
-          prefixIcon: Icon(
-            icon,
-            color: ColorsAssets.primaryColor,
-          ),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: ColorsAssets.primaryColor)),
-          enabledBorder: InputBorder.none,
-          contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-          hintText: hintText,
-          hintStyle: AppTypography.body2
-              .copyWith(color: ColorsAssets.textLightMedium)),
+        filled: true,
+        fillColor: ColorsAssets.thirdColor,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(width: 0),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(color: Colors.transparent, width: 0),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(color: ColorsAssets.primaryColor, width: 2.0),
+        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+        prefixIcon: Icon(
+          icon,
+          color: ColorsAssets.primaryColor,
+        ),
+        hintText: hintText,
+        hintStyle:
+            AppTypography.body2.copyWith(color: ColorsAssets.textLightMedium),
+      ),
     );
   }
 }
