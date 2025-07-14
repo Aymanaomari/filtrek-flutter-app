@@ -29,17 +29,20 @@ class AppTextField extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final TextInputType keyboardType;
+  final TextEditingController? controller; // Add controller parameter
 
   const AppTextField({
     super.key,
     required this.hintText,
     required this.icon,
     this.keyboardType = TextInputType.text,
+    this.controller, // Initialize controller
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller, // Pass controller to TextFormField
       style: AppTypography.body1.copyWith(color: ColorsAssets.textLight),
       keyboardType: keyboardType,
       decoration: InputDecoration(
