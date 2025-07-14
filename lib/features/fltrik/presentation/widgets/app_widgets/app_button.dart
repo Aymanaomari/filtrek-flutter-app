@@ -5,18 +5,29 @@ import 'package:flutter/material.dart';
 class AppButton extends StatelessWidget {
   final void Function()? onPressed;
   final String text;
+  final Color backgroundColor;
+  final double borderRadius;
 
-  const AppButton({super.key, this.onPressed, required this.text});
+  const AppButton({
+    super.key,
+    this.onPressed,
+    required this.text,
+    this.backgroundColor = ColorsAssets.primaryColor,
+    this.borderRadius = 8.0,
+  });
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      color: backgroundColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(borderRadius),
+      ),
       onPressed: onPressed,
       child: Text(
         text,
         style: AppTypography.button.copyWith(
           color: ColorsAssets.secondaryColor,
-          backgroundColor: ColorsAssets.primaryColor,
         ),
       ),
     );
