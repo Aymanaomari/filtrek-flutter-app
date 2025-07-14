@@ -15,7 +15,6 @@ import 'package:flutter/material.dart';
  * - [hintText]: The placeholder text displayed when the field is empty.
  * - [icon]: The icon displayed at the start of the text field.
  * - [keyboardType]: The type of keyboard to use for input (default is [TextInputType.text]).
- * - [maxLength]: The maximum number of characters allowed (default is 100).
  *
  * Example usage:
  * ```dart
@@ -23,7 +22,6 @@ import 'package:flutter/material.dart';
  *   hintText: 'Enter your email',
  *   icon: Icons.email,
  *   keyboardType: TextInputType.emailAddress,
- *   maxLength: 50,
  * )
  * ```
  */
@@ -31,14 +29,12 @@ class AppTextField extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final TextInputType keyboardType;
-  final int maxLength;
 
   const AppTextField({
     super.key,
     required this.hintText,
     required this.icon,
     this.keyboardType = TextInputType.text,
-    this.maxLength = 100,
   });
 
   @override
@@ -46,7 +42,6 @@ class AppTextField extends StatelessWidget {
     return TextFormField(
       style: AppTypography.body1.copyWith(color: ColorsAssets.textLight),
       keyboardType: keyboardType,
-      maxLength: maxLength,
       decoration: InputDecoration(
         filled: true,
         fillColor: ColorsAssets.thirdColor,
