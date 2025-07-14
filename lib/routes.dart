@@ -1,3 +1,4 @@
+import 'package:filtrek_app/features/fltrik/presentation/screens/authentification/login_screen.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/test/test_screen.dart';
 import 'package:filtrek_app/route_names.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +15,13 @@ final GoRouter routes = GoRouter(
           path: "/",
           builder: (context, state) => Scaffold()),
       GoRoute(
-          path: "/test",
-          name: RouteNames.test,
-          builder: (context, state) => TestScreen()),
+        path: "/test",
+        name: RouteNames.test,
+        builder: (context, state) => TestScreen(),
+      ),
+      GoRoute(
+          path: "/login",
+          name: RouteNames.login,
+          builder: (context, state) => LoginScreen())
     ],
-    initialLocation: "/");
+    initialLocation: "/login");
