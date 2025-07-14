@@ -47,6 +47,7 @@ class Crud {
   Future<Either<StatusRequest, Map>> getData(String linkurl,
       [Map<String, String> aditionalHeaders = const {}]) async {
     try {
+      print('Starting getData with URL: $linkurl');
       if (await checkInternet()) {
         final headers = {
           "Content-Type": "application/json",
@@ -56,6 +57,7 @@ class Crud {
           Uri.parse(linkurl),
           headers: headers,
         );
+        ;
         if (response.statusCode == 200) {
           Map responsebody = jsonDecode(response.body);
           return Right(responsebody);

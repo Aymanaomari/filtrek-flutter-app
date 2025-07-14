@@ -1,16 +1,27 @@
 import 'package:filtrek_app/features/fltrik/domain/entities/test.dart';
 
-class TestModel {
-  final String text;
-  final int value;
-  TestModel({required this.text, required this.value});
+class TestModel extends Test {
+  TestModel({required String text}) : super(text: text);
 
   factory TestModel.fromJson(Map<String, dynamic> json) {
-    return TestModel(text: json["text"], value: json["value"]);
-  }
-  factory TestModel.fromEntity(Test test) {
-    return TestModel(text: test.text, value: test.value);
+    return TestModel(
+      text: json['new'] ?? '',
+    );
   }
 
-  Test toEntity() => Test(text: text, value: value);
+  Map<String, dynamic> toJson() {
+    return {
+      'new': text,
+    };
+  }
+
+  // Convert TestModel to Test entity
+  Test toEntity() {
+    return Test(text: text);
+  }
+
+  // Create TestModel from Test entity
+  factory TestModel.fromEntity(Test test) {
+    return TestModel(text: test.text);
+  }
 }

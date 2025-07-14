@@ -5,10 +5,6 @@ import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: ColorsAssets.secondaryColor,
-        brightness: Brightness.light,
-      ),
       scaffoldBackgroundColor: ColorsAssets.scaffoldBackground,
 
       // Define your typography theme
