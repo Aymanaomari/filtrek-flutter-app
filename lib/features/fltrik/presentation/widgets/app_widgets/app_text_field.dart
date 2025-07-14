@@ -3,12 +3,25 @@ import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 
 class AppTextField extends StatelessWidget {
-  const AppTextField({super.key});
+  final String hintText;
+  final IconData icon;
+  final TextInputType keyboardType;
+  final int maxLength;
+
+  const AppTextField({
+    super.key,
+    required this.hintText,
+    required this.icon,
+    this.keyboardType = TextInputType.text,
+    this.maxLength = 100,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       style: AppTypography.body1.copyWith(color: ColorsAssets.textLight),
+      keyboardType: keyboardType,
+      maxLength: maxLength,
       decoration: InputDecoration(
           filled: true,
           fillColor: ColorsAssets.thirdColor,
@@ -16,7 +29,7 @@ class AppTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide(width: 0)),
           prefixIcon: Icon(
-            Icons.message,
+            icon,
             color: ColorsAssets.primaryColor,
           ),
           focusedBorder: OutlineInputBorder(
@@ -24,7 +37,7 @@ class AppTextField extends StatelessWidget {
               borderSide: BorderSide(color: ColorsAssets.primaryColor)),
           enabledBorder: InputBorder.none,
           contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-          hintText: "Enter Your email",
+          hintText: hintText,
           hintStyle: AppTypography.body2
               .copyWith(color: ColorsAssets.textLightMedium)),
     );
