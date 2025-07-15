@@ -9,7 +9,7 @@ Widget buildPasswordField(TextEditingController controller) {
       decoration: InputDecoration(
         labelText: "Password",
         labelStyle: TextStyle(color: ColorsAssets.textMedium),
-        suffixIcon: Icon(Icons.visibility, color: ColorsAssets.primaryColor),
+        suffixIcon: Icon(Icons.visibility_outlined, color: ColorsAssets.primaryColor),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: ColorsAssets.textMedium),borderRadius: BorderRadius.circular(10.0)),
         focusedBorder: OutlineInputBorder(

@@ -1,5 +1,6 @@
 import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
+import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,7 +22,7 @@ class EnterEmailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.email, color: Colors.limeAccent, size: 40),
+            Icon(Icons.email_outlined, color: Colors.limeAccent, size: 40),
             SizedBox(height: 20),
             Text("Reset Password",style: AppTypography.h2
                             .copyWith(color: ColorsAssets.textLight)),
@@ -32,6 +33,7 @@ class EnterEmailScreen extends StatelessWidget {
             TextField(
               controller: emailController,
               style: TextStyle(color: ColorsAssets.textLight),
+              keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 prefixIcon:Icon(Icons.email, color: ColorsAssets.primaryColor, size: 40),
                 labelText: "Email",
@@ -44,18 +46,13 @@ class EnterEmailScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 30),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.limeAccent,
-                foregroundColor: Colors.black,
-                minimumSize: Size(double.infinity, 50),
-              ),
-              onPressed: () {
+            AppButton(onPressed: () {
                 context.push('/newPwd');
-                  
               },
-              child: Text("Verify"),
-            )
+            text: "Verify",
+            backgroundColor: ColorsAssets.primaryColor,
+            borderRadius: 10,)
+            
           ],
         ),
       ),

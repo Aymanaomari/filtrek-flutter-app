@@ -1,7 +1,9 @@
 import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
+import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/buildPasswordField.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class EnterNewPasswordScreen extends StatelessWidget {
   final TextEditingController pass1 = TextEditingController();
@@ -19,7 +21,7 @@ class EnterNewPasswordScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.lock, color: ColorsAssets.primaryColor, size: 40),
+            Icon(Icons.lock_outline, color: ColorsAssets.primaryColor, size: 40),
             SizedBox(height: 20),
             Text("Enter New Password",style: AppTypography.h2.copyWith(color: ColorsAssets.textLight)),
             SizedBox(height: 10),
@@ -30,17 +32,12 @@ class EnterNewPasswordScreen extends StatelessWidget {
             SizedBox(height: 20),
             buildPasswordField(pass2),
             SizedBox(height: 30),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.limeAccent,
-                foregroundColor: Colors.black,
-                minimumSize: Size(double.infinity, 50),
-              ),
-              onPressed: () {
-                
+            AppButton(onPressed: () {
+                context.push('/validate');         
               },
-              child: Text("Reset Password"),
-            )
+            text: "Reset Password",
+            backgroundColor: ColorsAssets.primaryColor,
+            borderRadius: 10,)
           ],
         ),
       ),
