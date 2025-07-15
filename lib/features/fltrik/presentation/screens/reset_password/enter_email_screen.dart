@@ -17,42 +17,68 @@ class EnterEmailScreen extends StatelessWidget {
         backgroundColor: ColorsAssets.scaffoldBackground,
         leading: BackButton(color: ColorsAssets.textLight),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      resizeToAvoidBottomInset: true, // Permet de remonter le bouton
+      body: SafeArea(
+        child: Stack(
           children: [
-            Icon(Icons.email_outlined, color: Colors.limeAccent, size: 40),
-            SizedBox(height: 20),
-            Text("Reset Password",style: AppTypography.h2
-                            .copyWith(color: ColorsAssets.textLight)),
-            SizedBox(height: 10),
-            Text("Enter the email associated with your account and we’ll send and email to reset your password",
-                style: AppTypography.body2.copyWith(color: ColorsAssets.textMedium)),
-            SizedBox(height: 30),
-            TextField(
-              controller: emailController,
-              style: TextStyle(color: ColorsAssets.textLight),
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                prefixIcon:Icon(Icons.email, color: ColorsAssets.primaryColor, size: 40),
-                labelText: "Email",
-                hintText: "Example@email.com",
-                hintStyle: TextStyle(color: ColorsAssets.textLightMedium),
-                enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsAssets.textLightMedium),borderRadius: BorderRadius.circular(10.0)),
-                focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsAssets.primaryColor),borderRadius: BorderRadius.circular(10.0)),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                  24, 24, 24, 100), // espace en bas pour le bouton
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(Icons.email_outlined,
+                      color: ColorsAssets.primaryColor, size: 40),
+                  SizedBox(height: 20),
+                  Text(
+                    "Reset Password",
+                    style: AppTypography.h2
+                        .copyWith(color: ColorsAssets.textLight),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "Enter the email associated with your account and we’ll send an email to reset your password",
+                    style: AppTypography.body2
+                        .copyWith(color: ColorsAssets.textMedium),
+                  ),
+                  SizedBox(height: 30),
+                  TextField(
+                    controller: emailController,
+                    style: TextStyle(color: ColorsAssets.textLight),
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.email,
+                          color: ColorsAssets.primaryColor, size: 40),
+                      labelText: "Email",
+                      hintText: "Example@email.com",
+                      hintStyle: TextStyle(color: ColorsAssets.textLightMedium),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: ColorsAssets.textLightMedium),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: ColorsAssets.primaryColor),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            SizedBox(height: 30),
-            AppButton(onPressed: () {
-                context.push('/newPwd');
-              },
-            text: "Verify",
-            backgroundColor: ColorsAssets.primaryColor,
-            borderRadius: 10,)
-            
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: AppButton(
+                  onPressed: () {
+                    context.push('/newPwd');
+                  },
+                  text: "Verify",
+                ),
+              ),
+            ),
           ],
         ),
       ),

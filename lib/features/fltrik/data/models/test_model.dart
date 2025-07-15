@@ -1,7 +1,7 @@
 import 'package:filtrek_app/features/fltrik/domain/entities/test.dart';
 
 class TestModel extends Test {
-  TestModel({required String text}) : super(text: text);
+  TestModel({required super.text});
 
   factory TestModel.fromJson(Map<String, dynamic> json) {
     return TestModel(

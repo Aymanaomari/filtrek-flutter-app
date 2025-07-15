@@ -2,32 +2,30 @@ import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 
-/**
- * A reusable text field widget for forms and input fields.
- *
- * This widget provides a customizable text field with the following features:
- * - A hint text to guide the user on what to input.
- * - An icon displayed as a prefix inside the text field.
- * - Configurable keyboard type for different input types (e.g., text, email, number).
- * - A maximum character length to limit user input.
- *
- * Parameters:
- * - [hintText]: The placeholder text displayed when the field is empty.
- * - [icon]: The icon displayed at the start of the text field.
- * - [keyboardType]: The type of keyboard to use for input (default is [TextInputType.text]).
- *
- * Example usage:
- * ```dart
- * AppTextField(
- *   hintText: 'Enter your email',
- *   icon: Icons.email,
- *   keyboardType: TextInputType.emailAddress,
- * )
- * ```
- */
+/// A reusable text field widget for forms and input fields.
+///
+/// This widget provides a customizable text field with the following features:
+/// - A hint text to guide the user on what to input.
+/// - An icon displayed as a prefix inside the text field.
+/// - Configurable keyboard type for different input types (e.g., text, email, number).
+/// - A maximum character length to limit user input.
+///
+/// Parameters:
+/// - [hintText]: The placeholder text displayed when the field is empty.
+/// - [icon]: The icon displayed at the start of the text field.
+/// - [keyboardType]: The type of keyboard to use for input (default is [TextInputType.text]).
+///
+/// Example usage:
+/// ```dart
+/// AppTextField(
+///   hintText: 'Enter your email',
+///   icon: Icons.email,
+///   keyboardType: TextInputType.emailAddress,
+/// )
+/// ```
 
 class AppPasswordTextField extends StatefulWidget {
-  final String hintText;
+  final String labelText;
   final IconData icon;
   final TextInputType keyboardType;
   final TextEditingController? controller;
@@ -36,7 +34,7 @@ class AppPasswordTextField extends StatefulWidget {
 
   const AppPasswordTextField({
     super.key,
-    required this.hintText,
+    required this.labelText,
     required this.icon,
     this.keyboardType = TextInputType.text,
     this.controller,
@@ -80,11 +78,7 @@ class _AppPasswordTextFieldState extends State<AppPasswordTextField> {
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide(color: ColorsAssets.primaryColor, width: 2.0),
         ),
-        contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-        prefixIcon: Icon(
-          widget.icon,
-          color: ColorsAssets.primaryColor,
-        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 10),
         suffixIcon: IconButton(
           icon: Icon(
             isObscure
@@ -98,8 +92,8 @@ class _AppPasswordTextFieldState extends State<AppPasswordTextField> {
             });
           },
         ),
-        hintText: widget.hintText,
-        hintStyle:
+        labelText: widget.labelText,
+        labelStyle:
             AppTypography.body2.copyWith(color: ColorsAssets.textLightMedium),
       ),
     );
