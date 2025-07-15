@@ -1,7 +1,7 @@
 import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/reset_password/password_changed_screen.dart';
-import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/Blurred_dialog_overlay.dart';
+import 'package:filtrek_app/features/fltrik/presentation/widgets/reset_password/Blurred_dialog_overlay.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_password_text_field.dart';
 import 'package:flutter/material.dart';

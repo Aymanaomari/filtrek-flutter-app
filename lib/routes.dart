@@ -28,7 +28,7 @@ final GoRouter routes = GoRouter(
           builder: (context, state) => EnterEmailScreen()),
       GoRoute(
           path: "/newPwd",
-          name: RouteNames.resetPwd,
+          name: RouteNames.resetPassword,
           builder: (context, state) => EnterNewPasswordScreen()),
     ],
-    initialLocation: "/email");
+    initialLocation: "/newPwd");
