@@ -1,0 +1,107 @@
+import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
+import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
+import 'package:flutter/material.dart';
+
+/**
+ * A reusable text field widget for forms and input fields.
+ *
+ * This widget provides a customizable text field with the following features:
+ * - A hint text to guide the user on what to input.
+ * - An icon displayed as a prefix inside the text field.
+ * - Configurable keyboard type for different input types (e.g., text, email, number).
+ * - A maximum character length to limit user input.
+ *
+ * Parameters:
+ * - [hintText]: The placeholder text displayed when the field is empty.
+ * - [icon]: The icon displayed at the start of the text field.
+ * - [keyboardType]: The type of keyboard to use for input (default is [TextInputType.text]).
+ *
+ * Example usage:
+ * ```dart
+ * AppTextField(
+ *   hintText: 'Enter your email',
+ *   icon: Icons.email,
+ *   keyboardType: TextInputType.emailAddress,
+ * )
+ * ```
+ */
+
+class AppPasswordTextField extends StatefulWidget {
+  final String hintText;
+  final IconData icon;
+  final TextInputType keyboardType;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+  final bool obscure;
+
+  const AppPasswordTextField({
+    super.key,
+    required this.hintText,
+    required this.icon,
+    this.keyboardType = TextInputType.text,
+    this.controller,
+    this.validator,
+    this.obscure = false,
+  });
+
+  @override
+  _AppPasswordTextFieldState createState() => _AppPasswordTextFieldState();
+}
+
+class _AppPasswordTextFieldState extends State<AppPasswordTextField> {
+  late bool isObscure;
+
+  @override
+  void initState() {
+    super.initState();
+    isObscure = widget.obscure;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: widget.controller,
+      style: AppTypography.body1.copyWith(color: ColorsAssets.textLight),
+      keyboardType: widget.keyboardType,
+      validator: widget.validator,
+      obscureText: isObscure,
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: ColorsAssets.thirdColor,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(width: 0),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(color: Colors.transparent, width: 0),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(color: ColorsAssets.primaryColor, width: 2.0),
+        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+        prefixIcon: Icon(
+          widget.icon,
+          color: ColorsAssets.primaryColor,
+        ),
+        suffixIcon: IconButton(
+          icon: Icon(
+            isObscure
+                ? Icons.visibility_outlined
+                : Icons.visibility_off_outlined,
+            color: ColorsAssets.primaryColor,
+          ),
+          onPressed: () {
+            setState(() {
+              isObscure = !isObscure;
+            });
+          },
+        ),
+        hintText: widget.hintText,
+        hintStyle:
+            AppTypography.body2.copyWith(color: ColorsAssets.textLightMedium),
+      ),
+    );
+  }
+}
