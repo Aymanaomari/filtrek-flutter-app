@@ -4,22 +4,18 @@ import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
 import 'package:filtrek_app/features/fltrik/core/utils/extensions.dart';
 import 'package:filtrek_app/features/fltrik/presentation/providers/authentification/login_manager_provider.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button.dart';
-import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_password_text_field.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_text_field.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/authentification/o2auth_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_validator/form_validator.dart';
 
-class LoginScreen extends ConsumerWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends ConsumerWidget {
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final loginScreenManagerNotifier =
-        ref.read(loginScreenManagerProvider.notifier);
-    final loginScreenManagerState = ref.watch(loginScreenManagerProvider);
-
     return Scaffold(
         body: Container(
       padding: EdgeInsets.symmetric(horizontal: 16),
@@ -40,63 +36,59 @@ class LoginScreen extends ConsumerWidget {
                 height: 8,
               ),
               Text(
-                "Login",
+                "Sign up",
                 style: AppTypography.h1.copyWith(color: ColorsAssets.textLight),
               ),
               SizedBox(
                 height: 16,
               ),
               Text(
-                "Let’s sing in your Fitrek Account",
+                "Let’s create your Fitlek Account",
                 style: AppTypography.subtitle2
                     .copyWith(color: ColorsAssets.textMedium),
               ),
               SizedBox(
-                height: 15.0.hp(context).clamp(60, 80),
+                height: 10.0.hp(context).clamp(40, 50),
               ),
               Form(
-                  key: loginScreenManagerState.formKey,
                   child: Column(
-                    children: [
-                      AppTextField(
-                          controller: loginScreenManagerState.emailController,
-                          hintText: "Enter your Email",
-                          keyboardType: TextInputType.emailAddress,
-                          validator: ValidationBuilder()
-                              .email("The Email is not valid")
-                              .required()
-                              .build(),
-                          icon: Icons.email_outlined),
-                      SizedBox(
-                        height: 16,
-                      ),
-                      AppPasswordTextField(
-                          controller:
-                              loginScreenManagerState.passwordController,
-                          hintText: "Enter your Password",
-                          validator: ValidationBuilder()
-                              .minLength(
-                                  6, "Password must be at least 6 characters")
-                              .required("Password is required")
-                              .build(),
-                          icon: Icons.lock_outline),
-                      SizedBox(
-                        height: 16,
-                      ),
-                    ],
-                  )),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  InkWell(
-                    child: Text(
-                      "Forget Password ?",
-                      style: AppTypography.body2
-                          .copyWith(color: ColorsAssets.primaryColor),
-                    ),
-                  )
+                  AppTextField(
+                      hintText: "Enter your full name",
+                      icon: Icons.person_2_outlined),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  AppTextField(
+                      hintText: "Enter your Phone Number",
+                      icon: Icons.person_2_outlined),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  AppTextField(
+                      hintText: "Enter your email address",
+                      keyboardType: TextInputType.emailAddress,
+                      validator: ValidationBuilder()
+                          .email("Please provide a valid email address")
+                          .required("Email is required")
+                          .build(),
+                      icon: Icons.email_outlined),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  AppTextField(
+                      hintText: "Create a secure password",
+                      validator: ValidationBuilder()
+                          .minLength(
+                              6, "Password must be at least 6 characters long")
+                          .required("Password is required")
+                          .build(),
+                      icon: Icons.lock_outline),
+                  SizedBox(
+                    height: 16,
+                  ),
                 ],
-              ),
+              )),
               SizedBox(
                 height: 16,
               ),
@@ -105,9 +97,7 @@ class LoginScreen extends ConsumerWidget {
                 height: 48,
                 child: AppButton(
                   text: "Get Started",
-                  onPressed: () {
-                    loginScreenManagerNotifier.login();
-                  },
+                  onPressed: () {},
                   borderRadius: 100,
                 ),
               ),
@@ -166,8 +156,7 @@ class LoginScreen extends ConsumerWidget {
                       style: AppTypography.body2
                           .copyWith(color: ColorsAssets.primaryColor),
                     ),
-                    onTap: () => loginScreenManagerNotifier
-                        .navigateToSignupScreen(context),
+                    onTap: () {},
                   )
                 ],
               )

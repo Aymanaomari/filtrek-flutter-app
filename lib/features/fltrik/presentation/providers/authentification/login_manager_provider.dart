@@ -1,7 +1,9 @@
 import 'package:filtrek_app/features/fltrik/domain/usecases/authentification/login_usecase.dart';
 import 'package:filtrek_app/features/fltrik/presentation/providers/authentification/authentification_provider.dart';
+import 'package:filtrek_app/route_names.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginScreenState {
   final bool isLoading;
@@ -59,7 +61,6 @@ class LoginScreenManagerNotifier extends StateNotifier<LoginScreenState> {
     super.dispose();
   }
 
-  // Login method with form validation
   Future<void> login() async {
     if (state.formKey.currentState?.validate() ?? false) {
       state = state.copyWith(isLoading: true);
@@ -88,6 +89,10 @@ class LoginScreenManagerNotifier extends StateNotifier<LoginScreenState> {
   // Refresh method
   void refresh() {
     state = state.copyWith(isLoading: false, errorMessage: null);
+  }
+
+  void navigateToSignupScreen(context) {
+    GoRouter.of(context).goNamed(RouteNames.signup);
   }
 }
 
