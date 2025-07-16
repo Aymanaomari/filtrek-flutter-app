@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/reset_password/password_changed_screen.dart';
+import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/Blurred_dialog_overlay.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_password_text_field.dart';
 import 'package:flutter/material.dart';
@@ -90,10 +91,14 @@ class _EnterNewPasswordScreenState extends State<EnterNewPasswordScreen> {
                   ),
                   SizedBox(height: 30),
                   AppPasswordTextField(
-                      labelText: "New password", icon: Icons.lock_outline,controller: pass1),
+                      labelText: "New password",
+                      icon: Icons.lock_outline,
+                      controller: pass1),
                   SizedBox(height: 20),
                   AppPasswordTextField(
-                      labelText: "Reenter password", icon: Icons.lock_outline,controller: pass2),
+                      labelText: "Reenter password",
+                      icon: Icons.lock_outline,
+                      controller: pass2),
                 ],
               ),
             ),
@@ -111,27 +116,6 @@ class _EnterNewPasswordScreenState extends State<EnterNewPasswordScreen> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class BlurredDialogOverlay extends StatelessWidget {
-  final Widget child;
-
-  const BlurredDialogOverlay({required this.child, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-          child: Container(
-            color: Colors.black.withOpacity(0.3),
-          ),
-        ),
-        Center(child: child),
-      ],
     );
   }
 }
