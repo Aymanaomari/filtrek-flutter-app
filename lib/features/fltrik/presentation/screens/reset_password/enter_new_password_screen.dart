@@ -1,61 +1,20 @@
 import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
-import 'package:filtrek_app/features/fltrik/presentation/widgets/reset_password/blurred_dialog_overlay.dart';
+import 'package:filtrek_app/features/fltrik/presentation/providers/reset-password/EnterNewPasswordScreenProvider.dart';
+import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_blurred_dialog.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button.dart';
+import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button_two.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_password_text_field.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class EnterNewPasswordScreen extends StatefulWidget {
-  const EnterNewPasswordScreen({super.key});
-
+class EnterNewPasswordScreen extends ConsumerWidget {
   @override
-  State<EnterNewPasswordScreen> createState() => _EnterNewPasswordScreenState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final provider = ref.watch(enterNewPasswordScreenProvider);
+    final notifier = ref.read(enterNewPasswordScreenProvider.notifier);
 
-class _EnterNewPasswordScreenState extends State<EnterNewPasswordScreen> {
-  final TextEditingController pass1 = TextEditingController();
-  final TextEditingController pass2 = TextEditingController();
-
-  @override
-  void dispose() {
-    pass1.dispose();
-    pass2.dispose();
-    super.dispose();
-  }
-
-  void _onResetPassword() {
-    final pwd1 = pass1.text.trim();
-    final pwd2 = pass2.text.trim();
-
-    if (pwd1.isEmpty || pwd2.isEmpty) {
-      _showError("Both password fields are required.");
-      return;
-    }
-
-    if (pwd1 != pwd2) {
-      _showError("Passwords do not match.");
-      return;
-    }
-
-    // Si les mots de passe sont valides et identiques
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => BlurredDialogOverlay()
-    );
-  }
-
-  void _showError(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: Colors.red,
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsAssets.scaffoldBackground,
       appBar: AppBar(
@@ -89,12 +48,12 @@ class _EnterNewPasswordScreenState extends State<EnterNewPasswordScreen> {
                   AppPasswordTextField(
                       labelText: "New password",
                       icon: Icons.lock_outline,
-                      controller: pass1),
+                      controller: provider.pass1),
                   SizedBox(height: 20),
                   AppPasswordTextField(
                       labelText: "Reenter password",
                       icon: Icons.lock_outline,
-                      controller: pass2),
+                      controller: provider.pass2),
                 ],
               ),
             ),
@@ -103,7 +62,24 @@ class _EnterNewPasswordScreenState extends State<EnterNewPasswordScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: AppButton(
-                  onPressed: _onResetPassword,
+                  onPressed: () async {
+                    await notifier.resetPassword();
+                    await Future.delayed(const Duration(seconds: 1));
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (context) => AppBlurredDialog(
+                        title: "Password Changed Successfully",
+                        description:
+                            "Your password has been updated. You can now log in with your new credentials.",
+                        icon: Icons.check_circle,
+                        actionButton: AppButtonTwo(
+                          text: "Log In",
+                          onPressed: () => Navigator.of(context).pop(),
+                        ),
+                      ),
+                    );
+                  },
                   text: "Reset Password",
                   backgroundColor: ColorsAssets.primaryColor,
                 ),
