@@ -24,11 +24,11 @@ final GoRouter routes = GoRouter(
           builder: (context, state) => TestScreen()),
       GoRoute(
           path: "/email",
-          name: RouteNames.emailCheck,
+          name: RouteNames.enterEmailScreen,
           builder: (context, state) => EnterEmailScreen()),
       GoRoute(
           path: "/newPwd",
-          name: RouteNames.resetPwd,
+          name: RouteNames.enterNewPasswordScreen,
           builder: (context, state) => EnterNewPasswordScreen()),
     ],
     initialLocation: "/email");

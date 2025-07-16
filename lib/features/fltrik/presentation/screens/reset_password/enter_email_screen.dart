@@ -47,7 +47,7 @@ class EnterEmailScreen extends StatelessWidget {
                     style: TextStyle(color: ColorsAssets.textLight),
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email,
+                      prefixIcon: Icon(Icons.email_outlined,
                           color: ColorsAssets.primaryColor, size: 40),
                       labelText: "Email",
                       hintText: "Example@email.com",
