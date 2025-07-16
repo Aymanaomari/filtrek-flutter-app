@@ -1,5 +1,4 @@
 import 'package:filtrek_app/features/fltrik/presentation/screens/reset_password/enter_new_password_screen.dart';
-import 'package:filtrek_app/features/fltrik/presentation/screens/reset_password/password_changed_screen.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/test/test_screen.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/reset_password/enter_email_screen.dart';
 import 'package:filtrek_app/route_names.dart';
