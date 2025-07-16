@@ -2,25 +2,34 @@ import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 
-/// A reusable text field widget for forms and input fields.
+/// A password text field widget with show/hide functionality for secure input.
 ///
-/// This widget provides a customizable text field with the following features:
-/// - A hint text to guide the user on what to input.
+/// This widget is designed for password entry in forms. It provides:
+/// - A label to describe the field's purpose.
 /// - An icon displayed as a prefix inside the text field.
-/// - Configurable keyboard type for different input types (e.g., text, email, number).
-/// - A maximum character length to limit user input.
+/// - Configurable keyboard type (default is [TextInputType.text]).
+/// - A [TextEditingController] to manage the input text.
+/// - An optional validator for form validation.
+/// - An optional [obscure] property to set the initial visibility of the password.
+/// - A suffix icon button to toggle password visibility (show/hide password).
 ///
 /// Parameters:
-/// - [hintText]: The placeholder text displayed when the field is empty.
+/// - [labelText]: The label displayed above the text field.
 /// - [icon]: The icon displayed at the start of the text field.
-/// - [keyboardType]: The type of keyboard to use for input (default is [TextInputType.text]).
+/// - [keyboardType]: The type of keyboard to use for input.
+/// - [controller]: Controls the text being edited.
+/// - [validator]: Optional form field validator.
+/// - [obscure]: Whether the password is initially hidden (default: false).
 ///
 /// Example usage:
 /// ```dart
-/// AppTextField(
-///   hintText: 'Enter your email',
-///   icon: Icons.email,
-///   keyboardType: TextInputType.emailAddress,
+/// AppPasswordTextField(
+///   labelText: 'New password',
+///   icon: Icons.lock_outline,
+///   controller: passwordController,
+///   validator: (value) => value != null && value.length < 6
+///       ? 'Password must be at least 6 characters'
+///       : null,
 /// )
 /// ```
 
