@@ -1,6 +1,7 @@
 import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button.dart';
+import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -62,29 +63,11 @@ class _EnterEmailScreenState extends State<EnterEmailScreen> {
                         .copyWith(color: ColorsAssets.textMedium),
                   ),
                   const SizedBox(height: 30),
-                  TextField(
+                  AppTextField(
                     controller: emailController,
-                    style: TextStyle(color: ColorsAssets.textLight),
+                    icon: Icons.email_outlined,
                     keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email_outlined,
-                          color: ColorsAssets.primaryColor, size: 40),
-                      labelText: "Email",
-                      hintText: "Example@email.com",
-                      hintStyle:
-                          TextStyle(color: ColorsAssets.textLightMedium),
-                      errorText: errorText,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: ColorsAssets.textLightMedium),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: ColorsAssets.primaryColor),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
+                    hintText: "Example@email.com",
                   ),
                 ],
               ),
