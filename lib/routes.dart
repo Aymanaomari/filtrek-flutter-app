@@ -36,7 +36,7 @@ final GoRouter routes = GoRouter(
       GoRoute(
           path: "/signup",
           name: RouteNames.signup,
-          builder: (context, state) => SignupScreen())
+          builder: (context, state) => SignupScreen()),
       GoRoute(
           path: "/welcome",
           name: RouteNames.welcome,
