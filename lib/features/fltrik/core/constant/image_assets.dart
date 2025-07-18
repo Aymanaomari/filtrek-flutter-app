@@ -3,4 +3,6 @@ class ImageAssets {
   static const onBoarding2 = "assets/images/onBoarding/on_boarding_2.png";
   static const logo = "assets/images/logo.png";
   static const googleIcon = "assets/images/authentification/googleIcon.png";
+  static const welcomeBackground =
+      "assets/images/welcome/welcome_background.png";
 }

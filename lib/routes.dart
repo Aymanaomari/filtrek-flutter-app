@@ -3,6 +3,7 @@ import 'package:filtrek_app/features/fltrik/presentation/screens/authentificatio
 import 'package:filtrek_app/features/fltrik/presentation/screens/test/test_screen.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/onboarding/onboarding1_screen.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/onboarding/onboarding2_screen.dart';
+import 'package:filtrek_app/features/fltrik/presentation/screens/welcome/welcome_screen.dart';
 import 'package:filtrek_app/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -18,10 +19,10 @@ final GoRouter routes = GoRouter(
           path: "/",
           builder: (context, state) => const OnBoardingScreen1()),
       GoRoute(
-          name: RouteNames.onboarding2,
-          path: "/onboarding2",
-          builder: (context, state) => const OnBoardingScreen2(),
-        ),
+        name: RouteNames.onboarding2,
+        path: "/onboarding2",
+        builder: (context, state) => const OnBoardingScreen2(),
+      ),
       GoRoute(
         path: "/test",
         name: RouteNames.test,
@@ -36,5 +37,9 @@ final GoRouter routes = GoRouter(
           path: "/signup",
           name: RouteNames.signup,
           builder: (context, state) => SignupScreen())
+      GoRoute(
+          path: "/welcome",
+          name: RouteNames.welcome,
+          builder: (context, state) => WelcomeScreen()),
     ],
     initialLocation: "/login");
