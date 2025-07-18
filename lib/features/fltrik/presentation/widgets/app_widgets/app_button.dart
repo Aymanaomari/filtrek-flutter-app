@@ -13,7 +13,7 @@ class AppButton extends StatelessWidget {
     this.onPressed,
     required this.text,
     this.backgroundColor = ColorsAssets.primaryColor,
-    this.borderRadius = 8.0,
+    this.borderRadius = 100,
   });
 
   @override

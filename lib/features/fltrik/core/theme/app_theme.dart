@@ -6,7 +6,8 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       scaffoldBackgroundColor: ColorsAssets.scaffoldBackground,
-
+      appBarTheme:
+          AppBarTheme(backgroundColor: ColorsAssets.scaffoldBackground),
       // Define your typography theme
       textTheme: const TextTheme(
         displayLarge: AppTypography.displayLarge,
