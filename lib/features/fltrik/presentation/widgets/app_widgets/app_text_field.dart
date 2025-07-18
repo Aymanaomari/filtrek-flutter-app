@@ -25,18 +25,23 @@ import 'package:flutter/material.dart';
  * )
  * ```
  */
+
 class AppTextField extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final TextInputType keyboardType;
-  final TextEditingController? controller; // Add controller parameter
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+
+  // Add controller parameter
 
   const AppTextField({
     super.key,
     required this.hintText,
     required this.icon,
     this.keyboardType = TextInputType.text,
-    this.controller, // Initialize controller
+    this.controller,
+    this.validator, // Initialize controller
   });
 
   @override
@@ -45,6 +50,7 @@ class AppTextField extends StatelessWidget {
       controller: controller, // Pass controller to TextFormField
       style: AppTypography.body1.copyWith(color: ColorsAssets.textLight),
       keyboardType: keyboardType,
+      validator: validator,
       decoration: InputDecoration(
         filled: true,
         fillColor: ColorsAssets.thirdColor,
