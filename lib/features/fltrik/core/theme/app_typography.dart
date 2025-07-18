@@ -131,7 +131,7 @@ class AppTypography {
     fontFamily: 'Inter',
     fontSize: 14,
     height: 20 / 14, // 20px line height
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.bold,
     letterSpacing: 0.1,
   );
 
