@@ -1,38 +1,20 @@
 import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
+import 'package:filtrek_app/features/fltrik/presentation/providers/reset-password/EnterEmailScreenProvider.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class EnterEmailScreen extends StatefulWidget {
+class EnterEmailScreen extends ConsumerWidget {
   const EnterEmailScreen({super.key});
 
   @override
-  State<EnterEmailScreen> createState() => _EnterEmailScreenState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(enterEmailScreenProvider);
+    final notifier = ref.read(enterEmailScreenProvider.notifier);
 
-class _EnterEmailScreenState extends State<EnterEmailScreen> {
-  final TextEditingController emailController = TextEditingController();
-  String? errorText;
-
-  bool isEmailValid(String email) {
-    final regex = RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
-    return regex.hasMatch(email);
-  }
-
-  void verifyEmail() {
-    final email = emailController.text.trim();
-    if (isEmailValid(email)) {
-      setState(() => errorText = null);
-      context.push('/newPwd');
-    } else {
-      setState(() => errorText = "Please enter a valid email address");
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsAssets.scaffoldBackground,
       appBar: AppBar(
@@ -63,11 +45,15 @@ class _EnterEmailScreenState extends State<EnterEmailScreen> {
                         .copyWith(color: ColorsAssets.textMedium),
                   ),
                   const SizedBox(height: 30),
-                  AppTextField(
-                    controller: emailController,
-                    icon: Icons.email_outlined,
-                    keyboardType: TextInputType.emailAddress,
-                    hintText: "Example@email.com",
+                  Form(
+                    key: state.formKey,
+                    child: AppTextField(
+                      controller: state.emailController,
+                      icon: Icons.email_outlined,
+                      keyboardType: TextInputType.emailAddress,
+                      hintText: "Example@email.com",
+                      errorText: state.errorText, // ✅ affichage d'erreur
+                    ),
                   ),
                 ],
               ),
@@ -77,7 +63,12 @@ class _EnterEmailScreenState extends State<EnterEmailScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: AppButton(
-                  onPressed: verifyEmail,
+                  onPressed: () {
+                    final isValid = notifier.validateEmail();
+                    if (isValid) {
+                      context.push('/newPwd');
+                    }
+                  },
                   text: "Verify",
                 ),
               ),

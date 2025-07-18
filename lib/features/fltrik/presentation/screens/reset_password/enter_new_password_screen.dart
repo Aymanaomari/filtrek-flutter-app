@@ -45,15 +45,29 @@ class EnterNewPasswordScreen extends ConsumerWidget {
                         .copyWith(color: ColorsAssets.textMedium),
                   ),
                   SizedBox(height: 30),
-                  AppPasswordTextField(
-                      labelText: "New password",
-                      icon: Icons.lock_outline,
-                      controller: provider.pass1),
-                  SizedBox(height: 20),
-                  AppPasswordTextField(
-                      labelText: "Reenter password",
-                      icon: Icons.lock_outline,
-                      controller: provider.pass2),
+                  Form(
+                    key: provider.formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppPasswordTextField(
+                          controller: provider.pass1,
+                          labelText: "New password",
+                          icon: Icons.lock_outline,
+                          validator: notifier.validatePassword,
+                          errorText: provider.passwordError,
+                        ),
+                        SizedBox(height: 20),
+                        AppPasswordTextField(
+                          controller: provider.pass2,
+                          labelText: "Reenter password",
+                          icon: Icons.lock_outline,
+                          validator: notifier.validateConfirmPassword,
+                           errorText: provider.confirmPasswordError,
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
@@ -63,8 +77,9 @@ class EnterNewPasswordScreen extends ConsumerWidget {
                 padding: const EdgeInsets.all(24.0),
                 child: AppButton(
                   onPressed: () async {
-                    await notifier.resetPassword();
-                    await Future.delayed(const Duration(seconds: 1));
+                    final success = await notifier.resetPassword();
+                    if (!success) return;
+
                     showDialog(
                       context: context,
                       barrierDismissible: false,

@@ -40,6 +40,7 @@ class AppPasswordTextField extends StatefulWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final bool obscure;
+  final String? errorText;
 
   const AppPasswordTextField({
     super.key,
@@ -49,6 +50,7 @@ class AppPasswordTextField extends StatefulWidget {
     this.controller,
     this.validator,
     this.obscure = false,
+    this.errorText,
   });
 
   @override
@@ -104,6 +106,7 @@ class _AppPasswordTextFieldState extends State<AppPasswordTextField> {
         labelText: widget.labelText,
         labelStyle:
             AppTypography.body2.copyWith(color: ColorsAssets.textLightMedium),
+        errorText: widget.errorText,
       ),
     );
   }

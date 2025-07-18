@@ -6,25 +6,32 @@ class EnterNewPasswordScreenState {
   final TextEditingController pass2;
   final GlobalKey<FormState> formKey;
   final bool isLoading;
+  final String? passwordError;
+  final String? confirmPasswordError;
 
   EnterNewPasswordScreenState({
     required this.pass1,
     required this.pass2,
     required this.formKey,
     this.isLoading = false,
+    this.passwordError,
+    this.confirmPasswordError,
   });
 
-  EnterNewPasswordScreenState copyWith({
-    TextEditingController? pass1,
-    TextEditingController? pass2,
-    GlobalKey<FormState>? formKey,
-    bool? isLoading,
-  }) {
+  EnterNewPasswordScreenState copyWith(
+      {TextEditingController? pass1,
+      TextEditingController? pass2,
+      GlobalKey<FormState>? formKey,
+      bool? isLoading,
+      String? passwordError,
+      String? confirmPasswordError}) {
     return EnterNewPasswordScreenState(
       pass1: pass1 ?? this.pass1,
       pass2: pass2 ?? this.pass2,
       formKey: formKey ?? this.formKey,
       isLoading: isLoading ?? this.isLoading,
+      passwordError: passwordError,
+      confirmPasswordError: confirmPasswordError,
     );
   }
 }
@@ -66,18 +73,47 @@ class EnterNewPasswordScreenNotifier
     return null;
   }
 
-  Future<void> resetPassword() async {
-    if (!validateForm()) return;
+  Future<bool> resetPassword() async {
+    final password = state.pass1.text.trim();
+    final confirmPassword = state.pass2.text.trim();
+
+    String? passwordError;
+    String? confirmPasswordError;
+
+    if (password.isEmpty) {
+      passwordError = 'Password is required';
+    } else if (password.length < 6) {
+      passwordError = 'Password must be at least 6 characters long';
+    }
+
+    if (confirmPassword.isEmpty) {
+      confirmPasswordError = 'Please confirm your password';
+    } else if (confirmPassword != password) {
+      confirmPasswordError = 'Passwords do not match';
+    }
+
+    if (passwordError != null || confirmPasswordError != null) {
+      state = state.copyWith(
+        passwordError: passwordError,
+        confirmPasswordError: confirmPasswordError,
+      );
+      return false;
+    }
+
+    // Si pas d’erreur, on continue
+    state = state.copyWith(
+      passwordError: null,
+      confirmPasswordError: null,
+    );
 
     setLoading(true);
     try {
-      await Future.delayed(Duration(seconds: 2)); // Simulate API call
-
-      // Handle success
+      await Future.delayed(Duration(seconds: 1));
       print('Password reset successful');
+      return true;
     } catch (e) {
-      // Handle error
       print('Password reset failed: $e');
+      return false;
     } finally {
       setLoading(false);
     }

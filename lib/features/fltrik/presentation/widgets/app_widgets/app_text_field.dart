@@ -27,14 +27,16 @@ class AppTextField extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final TextInputType keyboardType;
-  final TextEditingController? controller; // Add controller parameter
+  final TextEditingController? controller;
+  final String? errorText;
 
   const AppTextField({
     super.key,
     required this.hintText,
     required this.icon,
     this.keyboardType = TextInputType.text,
-    this.controller, // Initialize controller
+    this.controller,
+    this.errorText,
   });
 
   @override
@@ -66,6 +68,7 @@ class AppTextField extends StatelessWidget {
         hintText: hintText,
         hintStyle:
             AppTypography.body2.copyWith(color: ColorsAssets.textLightMedium),
+        errorText: errorText,
       ),
     );
   }
