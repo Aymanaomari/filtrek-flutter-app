@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1066474511105",
+    "project_id": "project-flutter-832ea",
+    "storage_bucket": "project-flutter-832ea.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066474511105:android:32106487228bf163245900",
+        "android_client_info": {
+          "package_name": "com.example.filtrek_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlwz3UWyfydNSM7r_cCE3bS6XvQOEgFpg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
