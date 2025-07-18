@@ -6,7 +6,6 @@ import 'package:filtrek_app/features/fltrik/domain/repositories/test_repository.
 import 'package:filtrek_app/features/fltrik/domain/usecases/test/get_test_data.dart';
 import 'package:filtrek_app/features/fltrik/domain/usecases/test/post_test_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:http/http.dart';
 
 final testRemoteDsProvider = Provider<TestRemoteDs>((ref) {
   return TestRemoteDs(crud: Crud());

@@ -57,7 +57,6 @@ class Crud {
           Uri.parse(linkurl),
           headers: headers,
         );
-        ;
         if (response.statusCode == 200) {
           Map responsebody = jsonDecode(response.body);
           return Right(responsebody);

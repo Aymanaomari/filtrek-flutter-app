@@ -34,21 +34,23 @@ import 'package:flutter/material.dart';
 /// ```
 
 class AppPasswordTextField extends StatefulWidget {
-  final String hintText;
+  final String labelText;
   final IconData icon;
   final TextInputType keyboardType;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final bool obscure;
+  final String? errorText;
 
   const AppPasswordTextField({
     super.key,
-    required this.hintText,
+    required this.labelText,
     required this.icon,
     this.keyboardType = TextInputType.text,
     this.controller,
     this.validator,
     this.obscure = false,
+    this.errorText,
   });
 
   @override
@@ -87,11 +89,7 @@ class _AppPasswordTextFieldState extends State<AppPasswordTextField> {
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide(color: ColorsAssets.primaryColor, width: 2.0),
         ),
-        contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-        prefixIcon: Icon(
-          widget.icon,
-          color: ColorsAssets.primaryColor,
-        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 10),
         suffixIcon: IconButton(
           icon: Icon(
             isObscure
@@ -105,9 +103,10 @@ class _AppPasswordTextFieldState extends State<AppPasswordTextField> {
             });
           },
         ),
-        hintText: widget.hintText,
-        hintStyle:
+        labelText: widget.labelText,
+        labelStyle:
             AppTypography.body2.copyWith(color: ColorsAssets.textLightMedium),
+        errorText: widget.errorText,
       ),
     );
   }

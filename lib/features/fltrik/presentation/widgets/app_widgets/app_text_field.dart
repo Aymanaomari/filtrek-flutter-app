@@ -2,30 +2,27 @@ import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 
-/**
- * A reusable text field widget for forms and input fields.
- *
- * This widget provides a customizable text field with the following features:
- * - A hint text to guide the user on what to input.
- * - An icon displayed as a prefix inside the text field.
- * - Configurable keyboard type for different input types (e.g., text, email, number).
- * - A maximum character length to limit user input.
- *
- * Parameters:
- * - [hintText]: The placeholder text displayed when the field is empty.
- * - [icon]: The icon displayed at the start of the text field.
- * - [keyboardType]: The type of keyboard to use for input (default is [TextInputType.text]).
- *
- * Example usage:
- * ```dart
- * AppTextField(
- *   hintText: 'Enter your email',
- *   icon: Icons.email,
- *   keyboardType: TextInputType.emailAddress,
- * )
- * ```
- */
-
+/// A reusable text field widget for forms and input fields.
+///
+/// This widget provides a customizable text field with the following features:
+/// - A hint text to guide the user on what to input.
+/// - An icon displayed as a prefix inside the text field.
+/// - Configurable keyboard type for different input types (e.g., text, email, number).
+/// - A maximum character length to limit user input.
+///
+/// Parameters:
+/// - [hintText]: The placeholder text displayed when the field is empty.
+/// - [icon]: The icon displayed at the start of the text field.
+/// - [keyboardType]: The type of keyboard to use for input (default is [TextInputType.text]).
+///
+/// Example usage:
+/// ```dart
+/// AppTextField(
+///   hintText: 'Enter your email',
+///   icon: Icons.email,
+///   keyboardType: TextInputType.emailAddress,
+/// )
+/// ```
 class AppTextField extends StatelessWidget {
   final String hintText;
   final IconData icon;
@@ -33,7 +30,7 @@ class AppTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
 
-  // Add controller parameter
+  final String? errorText;
 
   const AppTextField({
     super.key,
@@ -41,7 +38,8 @@ class AppTextField extends StatelessWidget {
     required this.icon,
     this.keyboardType = TextInputType.text,
     this.controller,
-    this.validator, // Initialize controller
+    this.validator,
+    this.errorText,
   });
 
   @override
@@ -74,6 +72,7 @@ class AppTextField extends StatelessWidget {
         hintText: hintText,
         hintStyle:
             AppTypography.body2.copyWith(color: ColorsAssets.textLightMedium),
+        errorText: errorText,
       ),
     );
   }

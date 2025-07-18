@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class AppBlurredDialog extends StatelessWidget {
   final Widget? actionButton;

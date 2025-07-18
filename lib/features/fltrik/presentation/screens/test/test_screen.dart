@@ -1,11 +1,8 @@
 import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
-import 'package:filtrek_app/features/fltrik/core/utils/extensions.dart';
 import 'package:filtrek_app/features/fltrik/presentation/providers/test_provider.dart';
-import 'package:filtrek_app/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class TestScreen extends StatelessWidget {
   const TestScreen({super.key});
