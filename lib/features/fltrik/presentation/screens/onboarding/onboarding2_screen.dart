@@ -1,7 +1,7 @@
+import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/constant/image_assets.dart';
-import 'package:filtrek_app/features/fltrik/presentation/widgets/onboarding/custom_button.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/onboarding/left_diagonal_image.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
 
@@ -16,7 +16,7 @@ class OnBoardingScreen2 extends StatelessWidget {
       backgroundColor: ColorsAssets.scaffoldBackground,
       body: Column(
         children: [
-            LeftDiagonalImage(
+          LeftDiagonalImage(
             imagePath: ImageAssets.onBoarding2, // exemple
             height: size.height * 0.6,
           ),
@@ -31,17 +31,17 @@ class OnBoardingScreen2 extends StatelessWidget {
                   Text(
                     'Meet Expert Coaches',
                     textAlign: TextAlign.center,
-                    style: AppTypography.displaySmall.copyWith(
-                          color: ColorsAssets.primaryColor, 
-                        ),
+                    style: AppTypography.h1.copyWith(
+                      color: ColorsAssets.primaryColor,
+                    ),
                   ),
-                  const SizedBox(height: 8),
-                   Text(
+                  const SizedBox(height: 12),
+                  Text(
                     'Unlock your potential with guidance from top fitness professionals-right you train.',
                     textAlign: TextAlign.center,
-                     style: AppTypography.bodyMedium.copyWith(
-                          color: ColorsAssets.   textLight, 
-                        ),
+                    style: AppTypography.body2.copyWith(
+                      color: ColorsAssets.textLight,
+                    ),
                   ),
                   const SizedBox(height: 30),
                   Row(
@@ -66,12 +66,14 @@ class OnBoardingScreen2 extends StatelessWidget {
                       ),
                     ],
                   ),
-                   const SizedBox(height: 30),
-                  CustomMainButton(
-                    text: 'Start now ',
-                    onPressed: () {
-                      
-                    },
+                  const SizedBox(height: 30),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 48,
+                    child: AppButton(
+                      text: "Start Now",
+                      onPressed: () {},
+                    ),
                   ),
                   const SizedBox(height: 40),
                 ],
@@ -83,4 +85,3 @@ class OnBoardingScreen2 extends StatelessWidget {
     );
   }
 }
-

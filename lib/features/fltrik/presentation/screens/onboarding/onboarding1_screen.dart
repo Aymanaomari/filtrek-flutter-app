@@ -1,7 +1,8 @@
+import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button.dart';
+import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button_two.dart';
 import 'package:filtrek_app/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
-import 'package:filtrek_app/features/fltrik/presentation/widgets/onboarding/custom_button.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/onboarding/left_diagonal_image.dart';
 import 'package:filtrek_app/features/fltrik/core/constant/image_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
@@ -18,7 +19,7 @@ class OnBoardingScreen1 extends StatelessWidget {
       backgroundColor: ColorsAssets.scaffoldBackground,
       body: Column(
         children: [
-            LeftDiagonalImage(
+          LeftDiagonalImage(
             imagePath: ImageAssets.onBoarding1,
             height: size.height * 0.6,
           ),
@@ -33,18 +34,17 @@ class OnBoardingScreen1 extends StatelessWidget {
                   Text(
                     'Find Your Spot Gym',
                     textAlign: TextAlign.center,
-                    style: AppTypography.displaySmall.copyWith(
-                          color: ColorsAssets.primaryColor, 
-                        ),
-        
+                    style: AppTypography.h1.copyWith(
+                      color: ColorsAssets.primaryColor,
+                    ),
                   ),
                   const SizedBox(height: 8),
-                   Text(
+                  Text(
                     'Skip the guess work. let us guide you to the best gym with everything you need.',
                     textAlign: TextAlign.center,
-                     style: AppTypography.bodyMedium.copyWith(
-                          color: ColorsAssets.   textLight, 
-                        ),
+                    style: AppTypography.body2.copyWith(
+                      color: ColorsAssets.textLight,
+                    ),
                   ),
                   const SizedBox(height: 30),
                   Row(
@@ -69,26 +69,21 @@ class OnBoardingScreen1 extends StatelessWidget {
                       ),
                     ],
                   ),
-                   const SizedBox(height: 30),
-                  CustomMainButton(
-                    text: 'Next',
-                    onPressed: () {
-                        context.pushNamed(RouteNames.onboarding2);
-                    },
-                  ),
+                  const SizedBox(height: 30),
+                  SizedBox(
+                      height: 48,
+                      width: double.infinity,
+                      child: AppButton(
+                        text: "Next",
+                        onPressed: () {
+                          context.goNamed(RouteNames.onboarding2);
+                        },
+                      )),
                   const SizedBox(height: 16),
-                  TextButton(
-                      onPressed: () {
-                        // context.goNamed(RouteNames.home);
-                      },
-                      child: const Text(
-                        'Skip',
-                        style: TextStyle(
-                          color: ColorsAssets.primaryColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),)
+                  AppButtonTwo(
+                    text: "Skip",
+                    onPressed: () {},
+                  )
                 ],
               ),
             ),
