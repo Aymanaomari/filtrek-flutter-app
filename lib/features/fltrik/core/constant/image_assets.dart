@@ -5,4 +5,6 @@ class ImageAssets {
   static const googleIcon = "assets/images/authentification/googleIcon.png";
   static const welcomeBackground =
       "assets/images/welcome/welcome_background.png";
+  static const otpBackground =
+      "assets/images/otpVerification/otp_background.png";
 }

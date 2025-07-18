@@ -1,11 +1,13 @@
 import 'package:filtrek_app/features/fltrik/presentation/screens/authentification/login_screen.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/authentification/signup_screen.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/reset_password/enter_new_password_screen.dart';
+import 'package:filtrek_app/features/fltrik/presentation/screens/otp_verification/otp_verification_screen.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/test/test_screen.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/onboarding/onboarding1_screen.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/onboarding/onboarding2_screen.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/welcome/welcome_screen.dart';
 import 'package:filtrek_app/features/fltrik/presentation/screens/reset_password/enter_email_screen.dart';
+import 'package:filtrek_app/features/fltrik/presentation/screens/verify_account/verify_account_screen.dart';
 import 'package:filtrek_app/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -50,5 +52,15 @@ final GoRouter routes = GoRouter(
           path: "/newPwd",
           name: RouteNames.enterNewPasswordScreen,
           builder: (context, state) => EnterNewPasswordScreen()),
+      GoRoute(
+        path: "/otp-verification",
+        name: RouteNames.otpVerification,
+        builder: (context, state) => OtpVerificationScreen(),
+      ),
+      GoRoute(
+        path: "/verify-account",
+        name: RouteNames.verifyAccountScreen,
+        builder: (context, state) => VerifyAccountScreen(),
+      )
     ],
-    initialLocation: "/");
+    initialLocation: "/verify-account");
