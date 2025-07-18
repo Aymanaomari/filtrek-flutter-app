@@ -1,4 +1,5 @@
 import 'package:filtrek_app/features/fltrik/presentation/screens/test/test_screen.dart';
+import 'package:filtrek_app/features/fltrik/presentation/screens/welcome/welcome_screen.dart';
 import 'package:filtrek_app/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -17,5 +18,9 @@ final GoRouter routes = GoRouter(
           path: "/test",
           name: RouteNames.test,
           builder: (context, state) => TestScreen()),
+      GoRoute(
+          path: "/welcome",
+          name: RouteNames.welcome,
+          builder: (context, state) => WelcomeScreen()),
     ],
-    initialLocation: "/");
+    initialLocation: "/welcome");
