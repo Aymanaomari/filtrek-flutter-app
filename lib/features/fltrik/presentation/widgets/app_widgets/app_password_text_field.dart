@@ -51,6 +51,7 @@ class AppPasswordTextField extends StatefulWidget {
     this.validator,
     this.obscure = false,
     this.errorText,
+    required String hintText,
   });
 
   @override

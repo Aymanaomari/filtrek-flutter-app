@@ -23,20 +23,17 @@ final GoRouter routes = GoRouter(
           path: "/",
           builder: (context, state) => const OnBoardingScreen1()),
       GoRoute(
-        name: RouteNames.onboarding2,
-        path: "/onboarding2",
-        builder: (context, state) => const OnBoardingScreen2(),
-      ),
+          name: RouteNames.onboarding2,
+          path: "/onboarding2",
+          builder: (context, state) => const OnBoardingScreen2()),
       GoRoute(
-        path: "/test",
-        name: RouteNames.test,
-        builder: (context, state) => TestScreen(),
-      ),
+          path: "/test",
+          name: RouteNames.test,
+          builder: (context, state) => TestScreen()),
       GoRoute(
-        path: "/login",
-        name: RouteNames.login,
-        builder: (context, state) => LoginScreen(),
-      ),
+          path: "/login",
+          name: RouteNames.login,
+          builder: (context, state) => LoginScreen()),
       GoRoute(
           path: "/signup",
           name: RouteNames.signup,
@@ -54,4 +51,4 @@ final GoRouter routes = GoRouter(
           name: RouteNames.enterNewPasswordScreen,
           builder: (context, state) => EnterNewPasswordScreen()),
     ],
-    initialLocation: "/login");
+    initialLocation: "/");

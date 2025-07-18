@@ -71,15 +71,16 @@ class LoginScreen extends ConsumerWidget {
                         height: 16,
                       ),
                       AppPasswordTextField(
-                          controller:
-                              loginScreenManagerState.passwordController,
-                          hintText: "Enter your Password",
-                          validator: ValidationBuilder()
-                              .minLength(
-                                  6, "Password must be at least 6 characters")
-                              .required("Password is required")
-                              .build(),
-                          icon: Icons.lock_outline),
+                        controller: loginScreenManagerState.passwordController,
+                        hintText: "Enter your Password",
+                        validator: ValidationBuilder()
+                            .minLength(
+                                6, "Password must be at least 6 characters")
+                            .required("Password is required")
+                            .build(),
+                        icon: Icons.lock_outline,
+                        labelText: '',
+                      ),
                       SizedBox(
                         height: 16,
                       ),

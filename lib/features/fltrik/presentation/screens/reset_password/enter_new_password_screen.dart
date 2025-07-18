@@ -56,6 +56,7 @@ class EnterNewPasswordScreen extends ConsumerWidget {
                           icon: Icons.lock_outline,
                           validator: notifier.validatePassword,
                           errorText: provider.passwordError,
+                          hintText: '',
                         ),
                         SizedBox(height: 20),
                         AppPasswordTextField(
@@ -63,7 +64,8 @@ class EnterNewPasswordScreen extends ConsumerWidget {
                           labelText: "Reenter password",
                           icon: Icons.lock_outline,
                           validator: notifier.validateConfirmPassword,
-                           errorText: provider.confirmPasswordError,
+                          errorText: provider.confirmPasswordError,
+                          hintText: '',
                         ),
                       ],
                     ),

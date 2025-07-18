@@ -1,9 +1,11 @@
 import 'package:filtrek_app/features/fltrik/presentation/widgets/app_widgets/app_button.dart';
+import 'package:filtrek_app/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:filtrek_app/features/fltrik/core/constant/colors_assets.dart';
 import 'package:filtrek_app/features/fltrik/core/constant/image_assets.dart';
 import 'package:filtrek_app/features/fltrik/presentation/widgets/onboarding/left_diagonal_image.dart';
 import 'package:filtrek_app/features/fltrik/core/theme/app_typography.dart';
+import 'package:go_router/go_router.dart';
 
 class OnBoardingScreen2 extends StatelessWidget {
   const OnBoardingScreen2({super.key});
@@ -72,7 +74,9 @@ class OnBoardingScreen2 extends StatelessWidget {
                     height: 48,
                     child: AppButton(
                       text: "Start Now",
-                      onPressed: () {},
+                      onPressed: () {
+                        context.goNamed(RouteNames.login);
+                      },
                     ),
                   ),
                   const SizedBox(height: 40),
