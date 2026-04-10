@@ -1,10 +1,10 @@
 import 'package:filtrek_app/core/utils/extensions.dart';
 import 'package:filtrek_app/features/authentication/presentation/screens/singin_screen.dart';
 import 'package:filtrek_app/features/onboarding/presentation/providers/onboarding_screen_state.dart';
-import 'package:filtrek_app/presentation/widgets/app_widgets/app_button.dart';
-import 'package:filtrek_app/presentation/widgets/app_widgets/app_button_two.dart';
+import 'package:filtrek_app/features/onboarding/presentation/widgets/left_diagonal_image.dart';
+import 'package:filtrek_app/features/shared/widgets/app_button.dart';
+import 'package:filtrek_app/features/shared/widgets/app_button_two.dart';
 import 'package:flutter/material.dart';
-import 'package:filtrek_app/presentation/widgets/onboarding/left_diagonal_image.dart';
 import 'package:filtrek_app/core/theme/app_typography.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

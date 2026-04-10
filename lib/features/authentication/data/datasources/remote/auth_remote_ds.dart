@@ -1,4 +1,4 @@
-import 'package:filtrek_app/end_points.dart';
+import 'package:filtrek_app/core/constant/end_points.dart';
 import 'package:filtrek_app/core/class/crud.dart';
 import 'package:filtrek_app/features/authentication/data/models/request_reset_password_model.dart';
 import 'package:filtrek_app/features/authentication/data/models/verify_reset_password_model.dart';

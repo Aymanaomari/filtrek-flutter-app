@@ -1,8 +1,8 @@
 import 'package:filtrek_app/core/theme/app_typography.dart';
 import 'package:filtrek_app/features/authentication/presentation/providers/signup_screen_manager_provider.dart';
-import 'package:filtrek_app/presentation/widgets/app_widgets/app_password_text_field.dart';
-import 'package:filtrek_app/presentation/widgets/app_widgets/app_phone_text_field.dart';
-import 'package:filtrek_app/presentation/widgets/app_widgets/app_text_field.dart';
+import 'package:filtrek_app/features/shared/widgets/app_password_text_field.dart';
+import 'package:filtrek_app/features/shared/widgets/app_phone_text_field.dart';
+import 'package:filtrek_app/features/shared/widgets/app_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_validator/form_validator.dart';

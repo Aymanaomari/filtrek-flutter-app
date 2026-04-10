@@ -18,7 +18,7 @@ class ForgotPasswordSection extends StatelessWidget {
             style: AppTypography.body2.copyWith(color: color.primary),
           ),
           onTap: () {
-            //TODO : Add navigation to request reset password screen
+            //TODO: Implement forgot password flow
             // context.pushNamed(RouteNames.enterEmailScreen);
           },
         ),

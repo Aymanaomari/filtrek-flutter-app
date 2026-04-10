@@ -14,14 +14,14 @@ class AuthLocalDataSource {
   Future<void> saveAccessToken(String accessToken) async {
     try {
       final prefs = await sharedPreferences;
-      await prefs.setString(SpKeys.accessToken, accessToken);
+      await prefs.setString(SharedPreferencesKeys.accessToken, accessToken);
     } catch (e) {}
   }
 
   Future<String?> getAccessToken() async {
     try {
       final prefs = await sharedPreferences;
-      return prefs.getString(SpKeys.accessToken);
+      return prefs.getString(SharedPreferencesKeys.accessToken);
     } catch (e) {
       return null;
     }
@@ -30,7 +30,7 @@ class AuthLocalDataSource {
   Future<void> clearAccessToken() async {
     try {
       final prefs = await sharedPreferences;
-      await prefs.remove(SpKeys.accessToken);
+      await prefs.remove(SharedPreferencesKeys.accessToken);
     } catch (e) {
       return;
     }

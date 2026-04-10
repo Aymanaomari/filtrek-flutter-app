@@ -4,7 +4,7 @@ import 'package:filtrek_app/core/theme/app_typography.dart';
 import 'package:filtrek_app/core/utils/extensions.dart';
 import 'package:filtrek_app/features/authentication/presentation/providers/otp_verification_provider.dart';
 import 'package:filtrek_app/features/authentication/presentation/screens/enter_new_password_screen.dart';
-import 'package:filtrek_app/presentation/widgets/otp-verification/pinput_widget.dart';
+import 'package:filtrek_app/features/authentication/presentation/widgets/pinput_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';

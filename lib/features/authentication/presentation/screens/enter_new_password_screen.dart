@@ -1,14 +1,13 @@
 import 'package:filtrek_app/core/theme/app_typography.dart';
 import 'package:filtrek_app/features/authentication/presentation/providers/enter_new_password_screen_manager.dart';
-import 'package:filtrek_app/presentation/widgets/app_widgets/app_blurred_dialog.dart';
-import 'package:filtrek_app/presentation/widgets/app_widgets/app_button.dart';
-import 'package:filtrek_app/presentation/widgets/app_widgets/app_button_two.dart';
-import 'package:filtrek_app/presentation/widgets/app_widgets/app_password_text_field.dart';
+import 'package:filtrek_app/features/shared/widgets/app_blurred_dialog.dart';
+import 'package:filtrek_app/features/shared/widgets/app_button.dart';
+import 'package:filtrek_app/features/shared/widgets/app_button_two.dart';
+import 'package:filtrek_app/features/shared/widgets/app_password_text_field.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:go_router/go_router.dart';
 
 class EnterNewPasswordScreen extends ConsumerStatefulWidget {
   static const String routeName = '/new-password';

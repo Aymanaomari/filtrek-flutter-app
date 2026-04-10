@@ -7,10 +7,8 @@ import 'package:filtrek_app/features/authentication/domain/usecases/login_usecas
 import 'package:filtrek_app/features/authentication/domain/usecases/oauth_login_usecase.dart';
 import 'package:filtrek_app/features/authentication/presentation/providers/auth_provider.dart';
 import 'package:filtrek_app/features/authentication/presentation/providers/login_screen_state.dart';
-import 'package:filtrek_app/features/authentication/presentation/screens/signup_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:phone_text_field/phone_text_field.dart';
 
@@ -109,10 +107,6 @@ class LoginScreenManagerNotifier extends StateNotifier<LoginScreenState> {
 
   void refresh() {
     state = state.copyWith(isLoading: false, errorMessage: null);
-  }
-
-  void navigateToSignupScreen(context) {
-    GoRouter.of(context).goNamed(SignupScreen.routeName);
   }
 }
 

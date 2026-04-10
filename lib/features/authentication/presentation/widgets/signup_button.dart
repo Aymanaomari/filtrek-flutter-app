@@ -1,6 +1,6 @@
 import 'package:filtrek_app/features/authentication/presentation/providers/signup_screen_manager_provider.dart';
 import 'package:filtrek_app/features/authentication/presentation/screens/otp_verification_screen.dart';
-import 'package:filtrek_app/presentation/widgets/app_widgets/app_button.dart';
+import 'package:filtrek_app/features/shared/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';

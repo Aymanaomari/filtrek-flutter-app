@@ -1,6 +1,5 @@
 import 'package:filtrek_app/core/theme/app_typography.dart';
 import 'package:filtrek_app/features/onboarding/presentation/screens/onboarding_screen.dart';
-import 'package:filtrek_app/presentation/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -205,33 +204,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
 
     await Future.delayed(const Duration(seconds: 2));
 
-    // Check user state and redirect accordingly
-    _checkUserAndNavigate();
-  }
-
-  void _checkUserAndNavigate() async {
-    try {
-      final userNotifier = ref.read(userStateProvider.notifier);
-      await userNotifier.loadCurrentUser();
-
-      final userState = ref.watch(userStateProvider);
-
-      if (userState.currentUser != null) {
-        // User is logged in, redirect to welcome screen
-        if (mounted) {
-          // context.replaceNamed(RouteNames.welcome);
-        }
-      } else {
-        // No user found, redirect to onboarding
-        if (mounted) {
-          context.replaceNamed(OnBoardingScreen.routeName);
-        }
-      }
-    } catch (e) {
-      // On error, redirect to onboarding
-      if (mounted) {
-        context.replaceNamed(OnBoardingScreen.routeName);
-      }
+    if (mounted) {
+      context.pushNamed(OnBoardingScreen.routeName);
     }
   }
 
