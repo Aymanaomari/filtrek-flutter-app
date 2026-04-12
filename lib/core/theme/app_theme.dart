@@ -1,3 +1,4 @@
+import 'package:filtrek_app/core/theme/app_theme_colors.dart';
 import 'package:filtrek_app/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 
@@ -59,49 +60,30 @@ class AppTheme {
 
   static ThemeData get lightTheme {
     return ThemeData(
-      colorScheme: const ColorScheme.light(
-        // Main colors
-        primary: Color(0xFFC4E860), // Darker version of your primary color
-        secondary: Color(0xFFF5F5F5), // Light grey for secondary
-        surface: Color(0xFFFFFFFF), // White surface
-        background: Color(0xFFF8F8F8), // Light grey background
-
-        // Text colors
-        onPrimary: Color(0xFFFFFFFF), // White text on primary
-        onSecondary: Color(0xFF323232), // Dark text on secondary
-        onSurface: Color(0xFF323232), // Dark text on surface
-        onBackground: Color(0xFF323232), // Dark text on background
-
-        // Additional colors
-        tertiary: Color(0xFFE8A8A8), // Lighter version of your tertiary
-        outline: Color(0xFF969696), // Your textMedium
-        outlineVariant: Color(0xFFB0B0B0), // Lighter outline variant
-
-        // Error colors
-        error: Color(0xFFD32F2F),
-        onError: Color(0xFFFFFFFF),
-      ),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.transparent,
-        foregroundColor: Color(0xFF323232), // Dark text for light theme
-      ),
-      textTheme: const TextTheme(
-        displayLarge: AppTypography.displayLarge,
-        displayMedium: AppTypography.displayMedium,
-        displaySmall: AppTypography.displaySmall,
-        headlineLarge: AppTypography.headlineLarge,
-        headlineMedium: AppTypography.headlineMedium,
-        headlineSmall: AppTypography.headlineSmall,
-        titleLarge: AppTypography.titleLarge,
-        titleMedium: AppTypography.titleMedium,
-        titleSmall: AppTypography.titleSmall,
-        labelLarge: AppTypography.labelLarge,
-        labelMedium: AppTypography.labelMedium,
-        labelSmall: AppTypography.labelSmall,
-        bodyLarge: AppTypography.bodyLarge,
-        bodyMedium: AppTypography.bodyMedium,
-        bodySmall: AppTypography.bodySmall,
-      ),
-    );
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          foregroundColor: Color(0xFF323232), // Dark text for light theme
+        ),
+        textTheme: const TextTheme(
+          displayLarge: AppTypography.displayLarge,
+          displayMedium: AppTypography.displayMedium,
+          displaySmall: AppTypography.displaySmall,
+          headlineLarge: AppTypography.headlineLarge,
+          headlineMedium: AppTypography.headlineMedium,
+          headlineSmall: AppTypography.headlineSmall,
+          titleLarge: AppTypography.titleLarge,
+          titleMedium: AppTypography.titleMedium,
+          titleSmall: AppTypography.titleSmall,
+          labelLarge: AppTypography.labelLarge,
+          labelMedium: AppTypography.labelMedium,
+          labelSmall: AppTypography.labelSmall,
+          bodyLarge: AppTypography.bodyLarge,
+          bodyMedium: AppTypography.bodyMedium,
+          bodySmall: AppTypography.bodySmall,
+        ));
   }
+}
+
+extension AppThemeColorsExtension on ThemeData {
+  AppThemeColors get appColors => AppThemeColors();
 }
